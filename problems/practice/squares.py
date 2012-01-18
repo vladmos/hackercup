@@ -1,6 +1,6 @@
-import math
+# https://www.facebook.com/hackercup/problems.php?pid=112921602098268&round=4
 
-from common.io import output
+import math
 
 def is_square(number):
     return int(math.sqrt(number)) ** 2 == number

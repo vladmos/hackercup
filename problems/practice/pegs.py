@@ -1,3 +1,5 @@
+# https://www.facebook.com/hackercup/problems.php?pid=157960964217186&round=4
+
 from collections import defaultdict
 
 def get_next_row(row_index, row, missed_pegs):
