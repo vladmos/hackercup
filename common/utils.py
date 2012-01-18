@@ -8,8 +8,7 @@ def get_problem_id():
 
 def import_problem(problem_id):
     try:
-        problem = __import__('problems.%s' % problem_id, globals(), locals(), ['solver', 'fetcher'], -1)
-        return problem
+        return __import__('problems.%s' % problem_id, globals(), locals(), ['solver', 'fetcher'], -1)
     except ImportError:
         print 'Failed to import the module "%s". It\'s either missing or invalid' % problem_id
         sys.exit(1)
