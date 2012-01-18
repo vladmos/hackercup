@@ -13,8 +13,7 @@ To add a solver for a problem you should:
 as required for one task for given problem, preformat it and return all the data needed. The solver gets the fetcher's
 output as input argument and should return the answer as a string or any object that can be formatted to a string.
 *  Create a text file `input_problemname.txt` in the `input` directory as taken from the Hackercup problem site.
-*  Edit the first input in the `runner.py`: `from problems import problemname as problem`.
-*  Run `runner.py`
+*  Run `python runner.py problemname` (it is possible to enter `problemname` in the command prompt).
 *  See the result at `output/output_problemname.txt`
 
 Notes
