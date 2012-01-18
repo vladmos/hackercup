@@ -3,7 +3,9 @@ def input_stream(input_file):
         line = input_file.readline()
         if not line:
             return
-        yield line.strip()
+        line = line.strip()
+        if line:
+            yield line
 
 def input(input_file):
     tasks_count = int(input_file.readline().strip())
