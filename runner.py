@@ -1,4 +1,4 @@
-from problems.practice import squares as problem
+from problems.practice import dance as problem
 from common.io import output
 
 def main():
