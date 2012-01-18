@@ -1,4 +1,4 @@
-from problems.practice import first as problem
+from problems.practice import power as problem
 from common.io import output
 
 def main():
