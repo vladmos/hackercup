@@ -10,29 +10,35 @@ def get_gcd((a, b)):
             b = b - a
     return a
 
-def solver((racers, turns, probabilities)):
-    turns_required = racers - 1
+def solver((racers, probabilities)):
+    overtakes_required = racers - 1
 
-    best_result = (0, 1)
-    for turn_indices in combinations(xrange(turns), turns_required):
-        numerator = 1
-        denominator = 1
+    ratios = []
+    for turn_index, probability_pair in enumerate(probabilities):
+        success_in_overtaking = 1 - 1. / probability_pair[0]
+        success_in_normal_turn = 1 - 1. / probability_pair[1]
 
-        for i in xrange(turns):
-            if i in turn_indices:
-                probability = probabilities[i][0]
-            else:
-                probability = probabilities[i][1]
+        ratio = success_in_normal_turn / success_in_overtaking
 
-            numerator *= (probability - 1)
-            denominator *= probability
+        ratios.append((turn_index, ratio))
 
-        if float(numerator) / denominator > float(best_result[0]) / best_result[1]:
-            best_result = numerator, denominator
+    ratios.sort(key=lambda (i, ratio): ratio)
 
-    gcd = get_gcd(best_result)
+    numerator = 1
+    denominator = 1
 
-    return '%s/%s' % (best_result[0] / gcd, best_result[1] / gcd)
+    for ratio_index, ratio in enumerate(ratios):
+        if ratio_index < overtakes_required:
+            current_turn_probability = probabilities[ratio[0]][0]
+        else:
+            current_turn_probability = probabilities[ratio[0]][1]
+
+        numerator *= (current_turn_probability - 1)
+        denominator *= current_turn_probability
+
+    gcd = get_gcd((numerator, denominator))
+
+    return '%s/%s' % (numerator / gcd, denominator / gcd)
 
 def fetcher(input_stream):
     line = input_stream.next()
@@ -46,4 +52,4 @@ def fetcher(input_stream):
     for i in xrange(turns):
         probabilities.append((data[2 * i + 2], data[2 * i + 3]))
 
-    return racers, turns, probabilities
+    return racers, probabilities
