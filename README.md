@@ -23,3 +23,9 @@ The `problemname` string in the text above is an identifier to a task and should
 input file.
 
 A `fetcher` function should not read more strings than it is required: iterators are not reversible.
+
+Packing
+-------
+
+To make a zip package containing all necessary scripts to solve the problem, launch `python packager.py problemname`. The package will be put in the `packages` directory.
+
