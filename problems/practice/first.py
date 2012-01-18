@@ -3,11 +3,11 @@
 from itertools import combinations
 
 def get_gcd((a, b)):
-    while a != b:
-        if a > b:
-            a = a - b
-        else:
-            b = b - a
+    """
+    Greatest common divisor
+    """
+    while b:
+        a, b = b, a % b
     return a
 
 def solver((racers, probabilities)):
