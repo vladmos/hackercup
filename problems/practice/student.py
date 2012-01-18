@@ -4,7 +4,7 @@ from itertools import permutations
 
 def solver(words):
     # Not an optimal solution but takes just two short lines of python code :)
-    new_words = [''.join(sequence) for sequence in permutations(words)]
+    new_words = (''.join(sequence) for sequence in permutations(words))
     return min(new_words)
 
 def fetcher(input_stream):
