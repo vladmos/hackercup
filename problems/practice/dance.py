@@ -18,10 +18,6 @@ def get_field_cell(field, index):
     return field[index[0]][index[1]]
     
 def solver((field, start, end, colors)):
-    print field
-    print start
-    print colors
-
     rows = len(field)
     columns = len(field[0])
 
