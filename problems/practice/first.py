@@ -2,7 +2,7 @@
 
 from itertools import combinations
 
-def get_gcd((a, b)):
+def get_gcd(a, b):
     """
     Greatest common divisor
     """
@@ -36,7 +36,7 @@ def solver((racers, probabilities)):
         numerator *= (current_turn_probability - 1)
         denominator *= current_turn_probability
 
-    gcd = get_gcd((numerator, denominator))
+    gcd = get_gcd(numerator, denominator)
 
     return '%s/%s' % (numerator / gcd, denominator / gcd)
 
